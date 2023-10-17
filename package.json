@@ -1,0 +1,25 @@
+{
+    "name": "ezlua-types",
+    "version": "0.1.0",
+    "description": "Type declaration for ezlua builtin bindings",
+    "repository": "",
+    "license": "MIT",
+    "author": "metaworm",
+    "files": [
+        "**/*.d.ts"
+    ],
+    "scripts": {
+        "build": "typedoc"
+    },
+    "types": "./index.d.ts",
+    "devDependencies": {
+        "lua-types": "^2.13.0",
+        "typedoc": "^0.25.2",
+        "typedoc-plugin-merge-modules": "^5.1.0",
+        "typedoc-theme-hierarchy": "^4.1.2",
+        "typescript-to-lua": "^1.4.2"
+    },
+    "dependencies": {
+        "typescript": "^5.2.2"
+    }
+}

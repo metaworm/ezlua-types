@@ -1,0 +1,33 @@
+{
+  // "$schema": "https://raw.githubusercontent.com/TypeScriptToLua/vscode-typescript-to-lua/master/tsconfig-schema.json",
+  "compilerOptions": {
+    "types": ["lua-types/5.4", "@typescript-to-lua/language-extensions"],
+
+    /* Interop Constraints */
+    "esModuleInterop": true,                             /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables `allowSyntheticDefaultImports` for type compatibility. */
+    "forceConsistentCasingInFileNames": true,            /* Ensure that casing is correct in imports. */
+
+    /* Type Checking */
+    "strict": true,                                      /* Enable all strict type-checking options. */
+  },
+  "include": [
+    "**/*.d.ts"
+  ],
+  "files": ["index.d.ts"],
+  "typedocOptions": {
+    "entryPoints": [
+      "./ezlua/",
+    ],
+    "entryPointStrategy": "expand",
+    "exclude": ["node_moudles"],
+    "plugin": [
+      "typedoc-plugin-merge-modules",
+    ],
+    "mergeModulesMergeMode": "module",
+    "mergeModulesRenameDefaults": true,
+    "includeVersion": false,
+    "name": "ezlua",
+    "hideGenerator": true,
+    "disableSources": true
+  }
+}
