@@ -20,13 +20,16 @@ declare module "json" {
 
     /**
      * 任意数据转JSON格式
-     * @param data
      */
     export function dump(data: any): string;
 
     /**
+     * 转储JSON格式到文件中
+     */
+    export function dumpfile(path: string, data: any): void;
+
+    /**
      * 和dump类似，转成带缩进、空格的json，更易于阅读
-     * @param data
      */
     export function dump_pretty(data: any): string;
 }

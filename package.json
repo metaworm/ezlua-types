@@ -2,7 +2,7 @@
     "name": "ezlua-types",
     "version": "0.1.0",
     "description": "Type declaration for ezlua builtin bindings",
-    "repository": "",
+    "repository": "https://github.com/metaworm/ezlua-types",
     "license": "MIT",
     "author": "metaworm",
     "files": [

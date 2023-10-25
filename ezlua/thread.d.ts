@@ -69,29 +69,33 @@ declare module "thread" {
         __close(): void;
     }
 
-    export class CondVar {
+    export class CondVar<T = any> {
         /**
          * @see https://doc.rust-lang.org/std/sync/struct.Condvar.html#method.notify_one
          * @param val
          */
-        notify_one(val: any): void;
+        notify_one(val: T): void;
 
         /**
          * @see https://doc.rust-lang.org/std/sync/struct.Condvar.html#method.notify_all
          * @param val
          */
-        notify_all(val: any): void;
+        notify_all(val: T): void;
 
         /**
          * Wait the conditional variable
          * @param timeout milliseconds for wait
          */
-        wait(timeout: integer): void;
+        wait(timeout?: Duration): T;
     }
 
     export namespace sync {
-        export class Sender<T> {}
-        export class Receiver<T> {}
+        export class Sender<T> {
+            send(value: any): boolean;
+        }
+        export class Receiver<T> {
+            recv(): any;
+        }
 
         export function channel<T = any>(): LuaMultiReturn<[Sender<T>, Receiver<T> & LuaIterable<T>]>;
     }

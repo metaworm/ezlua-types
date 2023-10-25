@@ -3,6 +3,8 @@
  * @module _G
  */
 
+/// <reference path="./std/io.d.ts" />
+
 declare global {
     /**
      * Extension to lua os table in virtue of rust standard library, like python's os module
@@ -94,7 +96,7 @@ declare global {
              */
             function withext(path: string, ext: string): string;
             function withfilename(path: string, name: string): string;
-            function split(): LuaMultiReturn<[string, string]>;
+            function split(path: string): LuaMultiReturn<[string, string]>;
             /** split extension name */
             function splitext(path: string): LuaMultiReturn<[string, string]>;
 
@@ -118,6 +120,38 @@ declare global {
                 is_file(): boolean;
                 is_symlink(): boolean;
             }
+        }
+
+        function command(program: string): Command;
+
+        export type Stdio = 'pipe'|'inherit'|'null';
+
+        export class Command {
+            arg(arg: string): Command;
+            args(arg: string[]): Command;
+
+            current_dir(arg: string): Command;
+
+            env(name: string, value?: string): Command;
+            env_clear(): Command;
+
+            stdin(opt: Stdio): Command;
+            stdout(opt: Stdio): Command;
+            stderr(opt: Stdio): Command;
+
+            spawn(): Child;
+        }
+
+        export class Child {
+            take_stdin(): Write;
+            take_stdout(): Read;
+            take_stderr(): Read;
+
+            kill(): void;
+            wait(): void;
+
+            try_wait(): boolean;
+            wait_output(): bytes;
         }
     }
 }

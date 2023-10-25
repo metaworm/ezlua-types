@@ -6,6 +6,7 @@
 /// <reference path="./os.d.ts" />
 /// <reference path="./log.d.ts" />
 /// <reference path="./json.d.ts" />
+/// <reference path="./regex.d.ts" />
 /// <reference path="./string.d.ts" />
 /// <reference path="./tokio.d.ts" />
 /// <reference path="./thread.d.ts" />
@@ -27,3 +28,5 @@ declare function writefile(path: string, data: bytes): void;
  * Get the file path of the caller belongs to
  */
 declare function __file__(): string;
+
+declare type Duration = integer;
